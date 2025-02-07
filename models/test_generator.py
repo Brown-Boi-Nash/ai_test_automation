@@ -48,7 +48,7 @@ def generate_test_case(code_snippet, test_type="unit"):
     failure_context = get_past_failures()
 
     prompt = f"""
-    You are an expert software tester. Given the following Python function, generate a {test_type} test case using pytest.
+    You are an expert software tester. Given the following Python function, generate a {test_type} test case using pytest. It should just be a code and nothing else.
 
     Function Name: {function_name}
     Function Docstring: {docstring if docstring else "No documentation provided"}
