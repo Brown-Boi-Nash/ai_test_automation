@@ -1,0 +1,9 @@
+ollama
+pytest
+selenium
+playwright
+scikit-learn
+pandas
+requests
+coverage
+pytest-html

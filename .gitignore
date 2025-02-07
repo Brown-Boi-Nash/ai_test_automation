@@ -1,0 +1,24 @@
+# Ignore Python Virtual Environments
+venv/
+env/
+
+# Ignore Logs & Temporary Files
+logs/
+*.log
+
+# Ignore AI Test Failures & Reports
+results/test_failures.log
+results/test_results.csv
+results/test_report.html
+
+# Ignore Pytest Cache
+__pycache__/
+pytest_cache/
+
+# Ignore VS Code & IDE Configs
+.vscode/
+.idea/
+
+# Ignore System Files (Mac & Windows)
+.DS_Store
+Thumbs.db
