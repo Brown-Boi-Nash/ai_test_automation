@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -27,6 +27,9 @@ jobs:
           python -m venv venv
           source venv/bin/activate
           pip install -r requirements.txt
+
+      - name: Change to Project Root
+        run: echo "PYTHONPATH=$PYTHONPATH:$(pwd)" >> $GITHUB_ENV # ✅ Add project root to Python path
 
       - name: Run AI Test Generation
         run: |
@@ -41,13 +44,13 @@ jobs:
 
       - name: Upload Failure Logs for Self-Learning
         if: failure()
-        uses: actions/upload-artifact@v4  # ✅ Updated to v4
+        uses: actions/upload-artifact@v4 # ✅ Updated to v4
         with:
           name: test_failures
           path: results/test_failures.log
 
       - name: Upload Test Report
-        uses: actions/upload-artifact@v4  # ✅ Updated to v4
+        uses: actions/upload-artifact@v4 # ✅ Updated to v4
         with:
           name: test-report
           path: results/test_report.html
